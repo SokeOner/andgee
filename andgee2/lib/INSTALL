@@ -1,0 +1,1 @@
+mvn install:install-file -DgroupId=com.android -DartifactId=android -Dversion=1.0_r2 -Dpackaging=jar -Dfile=android-1.0_r2.jar
