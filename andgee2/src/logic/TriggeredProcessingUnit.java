@@ -25,6 +25,8 @@
 package logic;
 
 import java.util.Vector;
+
+import log.Log;
 import event.*;
 
 /**
@@ -99,7 +101,7 @@ public class TriggeredProcessingUnit extends ProcessingUnit {
 		// TrainButton = record a gesture for learning
 		if((!this.analyzing && !this.learning) && 
 			event.isTrainInitEvent()) {
-			System.out.println("Training started!");
+			Log.println("Training started!");
 			this.learning=true;
 			this.fireStateEvent(1);
 		}
@@ -107,7 +109,7 @@ public class TriggeredProcessingUnit extends ProcessingUnit {
 		// RecognitionButton = record a gesture for recognition
 		if((!this.analyzing && !this.learning) && 
 			event.isRecognitionInitEvent()) {
-			System.out.println("Recognition started!");
+			Log.println("Recognition started!");
 			this.analyzing=true;
 			this.fireStateEvent(2);
 		}
@@ -118,7 +120,7 @@ public class TriggeredProcessingUnit extends ProcessingUnit {
 			event.isCloseGestureInitEvent()) {
 		
 			if(this.trainsequence.size()>0) {
-				System.out.println("Training the model with "+this.trainsequence.size()+" gestures...");
+				Log.println("Training the model with "+this.trainsequence.size()+" gestures...");
 				this.fireStateEvent(1);
 				this.learning=true;
 				
@@ -130,7 +132,7 @@ public class TriggeredProcessingUnit extends ProcessingUnit {
 				this.trainsequence=new Vector<Gesture>();
 				this.learning=false;
 			} else {
-				System.out.println("There is nothing to do. Please record some gestures first.");
+				Log.println("There is nothing to do. Please record some gestures first.");
 			}
 		}
 	}
@@ -138,44 +140,44 @@ public class TriggeredProcessingUnit extends ProcessingUnit {
 	public void handleStopEvent(ActionStopEvent event) {
 		if(this.learning) { // button release and state=learning, stops learning
 			if(this.current.getCountOfData()>0) {
-				System.out.println("Finished recording (training)...");
-				System.out.println("Data: "+this.current.getCountOfData());
+				Log.println("Finished recording (training)...");
+				Log.println("Data: "+this.current.getCountOfData());
 				Gesture gesture = new Gesture(this.current);
 				this.trainsequence.add(gesture);
 				this.current=new Gesture();
 				this.learning=false;
 			} else {
-				System.out.println("There is no data.");
-				System.out.println("Please train the gesture again.");
+				Log.println("There is no data.");
+				Log.println("Please train the gesture again.");
 				this.learning=false; // ?
 			}
 		}
 		
 		else if(this.analyzing) { // button release and state=analyzing, stops analyzing
 			if(this.current.getCountOfData()>0) {
-				System.out.println("Finished recording (recognition)...");
-				System.out.println("Compare gesture with "+this.gesturecount+" other gestures.");
+				Log.println("Finished recording (recognition)...");
+				Log.println("Compare gesture with "+this.gesturecount+" other gestures.");
 				Gesture gesture = new Gesture(this.current);
 				
 				int recognized = this.classifier.classifyGesture(gesture);
 				if(recognized!=-1) {
 					double recogprob = this.classifier.getLastProbability();
 					this.fireGestureEvent(recognized, recogprob);
-					System.out.println("######");
-					System.out.println("Gesture No. "+recognized+" recognized: "+recogprob);
-					System.out.println("######");
+					Log.println("######");
+					Log.println("Gesture No. "+recognized+" recognized: "+recogprob);
+					Log.println("######");
 				} else {
 					this.fireStateEvent(0);
-					System.out.println("######");
-					System.out.println("No gesture recognized.");
-					System.out.println("######");
+					Log.println("######");
+					Log.println("No gesture recognized.");
+					Log.println("######");
 				}
 				
 				this.current=new Gesture();
 				this.analyzing=false;
 			} else {
-				System.out.println("There is no data.");
-				System.out.println("Please recognize the gesture again.");
+				Log.println("There is no data.");
+				Log.println("Please recognize the gesture again.");
 				this.analyzing=false; // ?
 			}
 		}

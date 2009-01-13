@@ -25,6 +25,8 @@
 package logic;
 
 import java.util.Vector;
+
+import log.Log;
 import event.AccelerationEvent;
 
 /**
@@ -77,7 +79,7 @@ public class Quantizer {
 		double pi = Math.PI;
 		this.radius = (gesture.getMaxAcceleration() + gesture
 				.getMinAcceleration()) / 2;
-		System.out.println("Using radius: " + this.radius);
+		Log.println("Using radius: " + this.radius);
 
 		// x , z , y
 		if (!this.maptrained) {
@@ -135,11 +137,11 @@ public class Quantizer {
 				if (nenner > 1) { // nur wenn der nenner>0 oder >1??? ist muss
 									// was
 					// geaendert werden
-					// System.out.println("Setze neuen Centeroid!");
+					// Log.debug("Setze neuen Centeroid!");
 					this.map[i] = new double[] {(zaehlerX / (double) nenner),
 												(zaehlerY / (double) nenner),
 												(zaehlerZ / (double) nenner) };
-					// System.out.println("Centeroid: "+i+": "+newcenteroid[0]+":"+newcenteroid[1]);
+					// Log.debug("Centeroid: "+i+": "+newcenteroid[0]+":"+newcenteroid[1]);
 				}
 			} // new centeroids
 
@@ -148,7 +150,7 @@ public class Quantizer {
 		// Debug: Printout groups
 		/*
 		 * for (int i = 0; i < n; i++) { for (int j = 0; j < this.data.size();
-		 * j++) { System.out.print(g[i][j] + "|"); } System.out.println(""); }
+		 * j++) { System.out.print(g[i][j] + "|"); } Log.debug(""); }
 		 */
 
 	}
@@ -183,7 +185,7 @@ public class Quantizer {
 						+ (vector[1] * vector[1]) + (vector[2] * vector[2]));
 				// System.out.print(d[i][j] + "|");
 			}
-			// System.out.println("");
+			// Log.debug("");
 		}
 
 		// look, to which group a value belongs
@@ -204,7 +206,7 @@ public class Quantizer {
 		/*
 		 * for (int i = 0; i < groups.length; i++) { // zeilen for (int j = 0; j
 		 * < groups[i].length; j++) { System.out.print(groups[i][j] + "|"); }
-		 * System.out.println(""); }
+		 * Log.debug(""); }
 		 */
 
 		return groups;
@@ -244,7 +246,7 @@ public class Quantizer {
 			// System.out.print(" "+sequence.elementAt(sequence.size()-1));
 		}
 
-		// System.out.println("");
+		// Log.debug("");
 
 		int[] out = new int[sequence.size()];
 		for (int i = 0; i < sequence.size(); i++) {
@@ -259,9 +261,9 @@ public class Quantizer {
 	 * interests.
 	 */
 	public void printMap() {
-		System.out.println("Centeroids:");
+		Log.println("Centeroids:");
 		for (int i = 0; i < this.map.length; i++) {
-			System.out.println(i + ". :" + this.map[i][0] + ":"
+			Log.println(i + ". :" + this.map[i][0] + ":"
 					+ this.map[i][1] + ":" + this.map[i][2]);
 		}
 	}

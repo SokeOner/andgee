@@ -29,9 +29,9 @@ public class Log {
 			if(mode==Log.PRINT) {
 				// console output enabled
 				if(o!=null) {
-					System.out.println(o.getClass()+": "+s);
+					log.Log.println(o.getClass()+": "+s);
 				} else {
-					System.out.println(s);
+				    log.Log.println(s);
 				}
 			} else if(mode==Log.FILE) {
 				// file output enabled

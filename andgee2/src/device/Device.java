@@ -27,7 +27,7 @@ package device;
 import java.io.IOException;
 import java.util.Vector;
 
-import logic.ProcessingUnit;
+import log.Log;
 import logic.*;
 import event.*;
 import filter.DirectionalEquivalenceFilter;
@@ -68,7 +68,6 @@ public class Device {
 	 */
 	public void addFilter(Filter filter) {
 		this.filters.add(filter);
-		System.out.println("Filter added...");
 	}
 	
 	/**
@@ -89,7 +88,6 @@ public class Device {
 	 */
 	public void addDeviceListener(DeviceListener listener) {
 		this.devicelistener.add(listener);
-		System.out.println("WiimoteListener added...");
 	}
 	
 	/**
@@ -99,7 +97,7 @@ public class Device {
 	 */
 	public void addGestureListener(GestureListener listener) {
 		this.analyzer.addGestureListener(listener);
-		System.out.println("GestureListener added...");
+		Log.println("GestureListener added...");
 	}
 	
 	public int getRecognitionButton() {

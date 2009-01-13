@@ -71,10 +71,10 @@
 //				/*
 //				 * for(int i=0; i<input.length; i++) {
 //				 * System.out.print(input[i]); if(i==input.length-1) {
-//				 * System.out.println(""); } else { System.out.print(":"); } }
+//				 * Log.debug(""); } else { System.out.print(":"); } }
 //				 *  /* for(int i=0; i<b.length; i++) {
 //				 * System.out.print((int)b[i]&0xFF); if(i==input.length-1) {
-//				 * System.out.println(""); } else { System.out.print(":"); } }
+//				 * Log.debug(""); } else { System.out.print(":"); } }
 //				 */
 //
 //				// wiimote wants to tell the calibration data
@@ -86,7 +86,7 @@
 //					this.x1 = b[11] & 0xFF;
 //					this.y1 = b[12] & 0xFF;
 //					this.z1 = b[13] & 0xFF;
-//					System.out.println("Autocalibration successful!");
+//					Log.debug("Autocalibration successful!");
 //					continue;
 //				}
 //
@@ -258,7 +258,7 @@
 //			} // while(running)
 //
 //		} catch (IOException e) {
-//			System.out.println("Streamer: Connection to Wiimote lost.");
+//			Log.debug("Streamer: Connection to Wiimote lost.");
 //			this.running = false;
 //		}
 //	}

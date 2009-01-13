@@ -125,9 +125,9 @@
 //		try {
 //			this.controlCon.close();
 //			this.receiveCon.close();
-//			System.out.println("Disconnected wiimote.");
+//			Log.debug("Disconnected wiimote.");
 //		} catch(Exception e) {
-//			System.out.println("Failure during disconnect of wiimote.");
+//			Log.debug("Failure during disconnect of wiimote.");
 //		}
 //	}
 //	
@@ -241,7 +241,7 @@
 //			try {
 //				Thread.sleep(20l);
 //			} catch (InterruptedException e) {
-//				System.out.println("sendRaw() interrupted");
+//				Log.debug("sendRaw() interrupted");
 //			}
 //		}
 //	}
@@ -362,7 +362,7 @@
 //			this.vibrating=false;
 //		 }
 //		} catch (InterruptedException e) {
-//			System.out.println("WiiMoteThread interrupted.");
+//			Log.debug("WiiMoteThread interrupted.");
 //		}
 //	}
 //	

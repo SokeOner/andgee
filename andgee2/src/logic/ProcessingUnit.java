@@ -2,6 +2,7 @@ package logic;
 
 import java.util.Vector;
 
+import log.Log;
 import event.AccelerationEvent;
 import event.ButtonPressedEvent;
 import event.ButtonReleasedEvent;
@@ -70,9 +71,9 @@ public abstract class ProcessingUnit implements DeviceListener {
 	public void reset() {
 		if(this.gesturecount>0) {
 			this.classifier.clear();
-			System.out.println("### Model reset ###");
+			Log.println("### Model reset ###");
 		} else {
-			System.out.println("There doesn't exist any data to reset.");
+			Log.println("There doesn't exist any data to reset.");
 		}
 	}
 	
