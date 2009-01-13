@@ -8,7 +8,6 @@ import event.ButtonReleasedEvent;
 import event.DeviceListener;
 import event.GestureEvent;
 import event.GestureListener;
-import event.InfraredEvent;
 import event.MotionStartEvent;
 import event.MotionStopEvent;
 import event.StateEvent;
@@ -58,7 +57,7 @@ public abstract class ProcessingUnit implements DeviceListener {
 
 	public abstract void buttonReleaseReceived(ButtonReleasedEvent event);
 
-	public abstract void infraredReceived(InfraredEvent event);
+//	public abstract void infraredReceived(InfraredEvent event);
 
 	public abstract void motionStartReceived(MotionStartEvent event);
 

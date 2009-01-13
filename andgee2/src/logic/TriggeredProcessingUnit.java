@@ -81,10 +81,10 @@ public class TriggeredProcessingUnit extends ProcessingUnit {
 		this.handleStopEvent(event);
 	}
 	
-	@Override
-	public void infraredReceived(InfraredEvent event) {
-		// NOTHING TO DO HERE	
-	}
+//	@Override
+//	public void infraredReceived(InfraredEvent event) {
+//		// NOTHING TO DO HERE	
+//	}
 	
 	public void motionStartReceived(MotionStartEvent event) {
 		this.handleStartEvent(event);

@@ -77,7 +77,7 @@ public interface DeviceListener extends EventListener {
 	 */
 	public abstract void motionStopReceived(MotionStopEvent event);
 	
-	public abstract void infraredReceived(InfraredEvent event);
+//	public abstract void infraredReceived(InfraredEvent event);
 	
 
 }
