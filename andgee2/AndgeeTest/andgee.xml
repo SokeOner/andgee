@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+        android:id="@+id/status" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" />
+<TextView  
+        android:id="@+id/lblStartKey" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    />
+<TextView  
+        android:id="@+id/lblStopKey" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    />
+<TextView  
+        android:id="@+id/lblLearnKey" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    />
+
+<Button android:id="@+id/learn"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"
+android:text="Learn"
+ />     
+
+<Button android:id="@+id/regonize"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"
+android:text="Regonize"
+ />     
+        
+</LinearLayout>
